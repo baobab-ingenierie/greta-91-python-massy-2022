@@ -1,0 +1,10 @@
+.violet {
+    background: #800080;
+    color: #fff;
+}
+
+.jb-background {
+    background-image: url(../pics/bg.webp);
+    background-size: cover;
+    color: #fff;
+}

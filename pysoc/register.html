@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pysoc : Candidature</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bonus.css">
+</head>
+
+<body class="container">
+    <div class="jumbotron jb-background">
+        <h1 class="display-4">Rejoignez-nous !</h1>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora obcaecati blanditiis,
+            facere,
+            possimus laborum sint in perspiciatis nihil similique expedita nesciunt pariatur vitae. Aut id ipsa
+            necessitatibus minus similique dolore.
+            Unde, ad maiores magnam veritatis adipisci voluptas officia.</p>
+        <hr class="my-4">
+        <p>Pour plus d'informations sur le langage Python, n'ésitez pas à cliquer sur le bouton ci-dessous.</p>
+        <a class="btn violet btn-lg" href="https://www.python.org/" role="button">Plus de détails</a>
+    </div>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Candidature</li>
+        </ol>
+    </nav>
+
+    <form action="save.php" method="post">
+        <div class="form-group">
+            <label for="fname">Prénom</label>
+            <input type="text" name="fname" id="fname" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date de naissance</label>
+            <input type="date" name="dob" id="dob" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="region">Région</label>
+            <select name="region" id="region" class="form-control">
+                <option value="">--- Choisissez une région ---</option>
+                <option value="GDE">Grand Est</option>
+                <option value="IDF">Ile de France</option>
+                <option value="OCC">Occitanie</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="salary">Prétentions salariales</label>
+            <input type="number" name="salary" id="salary" class="form-control" min="1600" max="4000" value="2800" step="100">
+        </div>
+        <div class="form-check">
+            <input type="radio" name="location" id="TT" class="form-check-input" value="Télétravail"><label class="form-check-label" for="TT">Télétravail</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" name="location" id="LT" class="form-check-input" value="Lieu de travail" checked><label class="form-check-label" for="LT">Lieu de travail</label>
+        </div>
+        <div class="form-check">
+            <input type="radio" name="location" id="MX" class="form-check-input" value="Mixte"><label class="form-check-label" for="MX">Mixte</label>
+        </div>
+        <button type="submit" class="btn violet my-4">Postuler</button>
+    </form>
+</body>
+
+</html>
