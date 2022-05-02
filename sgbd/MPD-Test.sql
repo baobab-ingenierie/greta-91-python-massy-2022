@@ -32,10 +32,12 @@ CREATE TABLE massy.contacts(
 
 -- Insère quelques clients (SQL standard)
 INSERT INTO massy.clients(siret, raison)
-VALUES('11111', 'Fafa la frite SARL');
+VALUES('11111', 'Fafa la frite SARL')
+;
 
 INSERT INTO massy.clients(siret, raison)
-VALUES('22222', 'Bobo le Choco SAS');
+VALUES('22222', 'Bobo le Choco SAS')
+;
 
 -- Insère quelques contacts (MySQL seulement)
 INSERT INTO massy.contacts(prenom, tel, siret)
