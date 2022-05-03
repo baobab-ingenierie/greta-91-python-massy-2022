@@ -90,3 +90,25 @@ INTO TABLE greta91.etudie
 FIELDS TERMINATED BY ';'
 IGNORE 1 LINES
 ;
+
+-- Modifie la structure de la table ETUDIE
+ALTER TABLE greta91.etudie
+    ADD CONSTRAINT ck_note 
+    CHECK (note BETWEEN 0 AND 20)
+;
+
+-- Ajoute une table FORMATION reliée
+-- à la table MATIERE
+CREATE TABLE greta91.formation(
+    id_for SMALLINT AUTO_INCREMENT PRIMARY KEY,
+    nom_for VARCHAR(100) NOT NULL,
+    duree_for TIME
+);
+
+ALTER TABLE greta91.matiere
+    ADD duree_mat TIME,
+    ADD id_for SMALLINT,
+    ADD CONSTRAINT fk_matiere
+        FOREIGN KEY (id_for) 
+        REFERENCES formation(id_for)
+;
