@@ -5,7 +5,7 @@ USE greta91;
 
 -- Création des tables
 -- Collées directement de Looping !
-CREATE TABLE etudiant(
+CREATE TABLE greta91.etudiant(
    code_etu SMALLINT AUTO_INCREMENT,
    nom_etudiant VARCHAR(30) NOT NULL,
    ddn_etudiant DATE,
@@ -15,7 +15,7 @@ CREATE TABLE etudiant(
    UNIQUE(tel)
 );
 
-CREATE TABLE enseignant(
+CREATE TABLE greta91.enseignant(
    code_ens SMALLINT AUTO_INCREMENT,
    nom_ens VARCHAR(30) NOT NULL,
    grade TINYINT,
@@ -40,12 +40,12 @@ CREATE TABLE etudie(
    code_mat SMALLINT,
    note DECIMAL(4,2),
    PRIMARY KEY(code_etu, code_mat),
-   FOREIGN KEY(code_etu) REFERENCES etudiant(code_etu),
-   FOREIGN KEY(code_mat) REFERENCES matiere(code_mat)
+   FOREIGN KEY(code_etu) REFERENCES greta91.etudiant(code_etu),
+   FOREIGN KEY(code_mat) REFERENCES greta91.matiere(code_mat)
 );
 
 -- Ajout data dans ETUDIANT
-INSERT INTO etudiant(nom_etudiant,ddn_etudiant,sexe)
+INSERT INTO greta91.etudiant(nom_etudiant,ddn_etudiant,sexe)
 VALUES
     ('Amani', '2000-12-06', 'F'),
     ('Mounib', '1983-11-12', 'M'),
@@ -62,7 +62,7 @@ VALUES
 ;
 
 -- Ajoute data dans ENSEIGNANT
-INSERT INTO enseignant(nom_ens, grade, date_entree)
+INSERT INTO greta91.enseignant(nom_ens, grade, date_entree)
 VALUES
     ('Cédric', 2, '2019-10-14'),
     ('Boussad', 4, '1998-07-12'),
@@ -72,7 +72,7 @@ VALUES
 ;
 
 -- Ajoute data dans MATIERE
-INSERT INTO matiere(nom_matiere, coeff, code_ens)
+INSERT INTO greta91.matiere(nom_matiere, coeff, code_ens)
 VALUES
     ('Les bases du Web', 2, 5),
     ('Maths et Algo', 3, 2),
