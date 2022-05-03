@@ -20,16 +20,18 @@ CREATE TABLE enseignant(
    nom_ens VARCHAR(30) NOT NULL,
    grade TINYINT,
    date_entree DATE,
-   PRIMARY KEY(code_ens)
+   PRIMARY KEY(code_ens),
+   CONSTRAINT ck_grade CHECK(grade BETWEEN 1 AND 4)
 );
 
-CREATE TABLE matiere(
+CREATE TABLE greta91.matiere(
    code_mat SMALLINT AUTO_INCREMENT,
    nom_matiere VARCHAR(50) NOT NULL,
    coeff TINYINT NOT NULL,
    code_ens SMALLINT NOT NULL,
    PRIMARY KEY(code_mat),
-   FOREIGN KEY(code_ens) REFERENCES enseignant(code_ens)
+   FOREIGN KEY(code_ens) 
+   REFERENCES greta91.enseignant(code_ens)
 );
 
 CREATE TABLE etudie(
@@ -40,3 +42,30 @@ CREATE TABLE etudie(
    FOREIGN KEY(code_etu) REFERENCES etudiant(code_etu),
    FOREIGN KEY(code_mat) REFERENCES matiere(code_mat)
 );
+
+-- Ajout data dans ETUDIANT
+INSERT INTO etudiant(nom_etudiant,ddn_etudiant,sexe)
+VALUES
+    ('Amani', '2000-12-06', 'F'),
+    ('Mounib', '1983-11-12', 'M'),
+    ('Marc', '1988-06-07', 'M'), -- Paie son coup
+    ('Romain', '1987-05-10', 'M'), -- Paie son coup 2x
+    ('Jérôme', '1980-07-06', 'M'),
+    ('Manuel', '1976-11-21', 'M'),
+    ('Edwin', '2000-01-15', 'M'),
+    ('Michaël', '1978-10-31', 'M'),
+    ('Amandine', '2000-05-08', 'F'), -- Paie son coup le 9
+    ('Aurélien', '1990-05-03', 'M'), -- Poueeeeeet
+    ('Stéphane', '2001-04-21', 'M'),
+    ('Marie-Sylvie', '2000-03-04', 'F')
+;
+
+-- Ajoute data dans ENSEIGNANT
+INSERT INTO enseignant(nom_ens, grade, date_entree)
+VALUES
+    ('Cédric', 2, '2019-10-14'),
+    ('Boussad', 4, '1998-07-12'),
+    ('Adrien', 3, '2007-05-15'),
+    ('Viviane', 3, '2010-01-06'),
+    ('Lesly', 4, '1994-04-20')
+;
