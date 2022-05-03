@@ -31,7 +31,8 @@ CREATE TABLE greta91.matiere(
    code_ens SMALLINT NOT NULL,
    PRIMARY KEY(code_mat),
    FOREIGN KEY(code_ens) 
-   REFERENCES greta91.enseignant(code_ens)
+   REFERENCES greta91.enseignant(code_ens),
+   CONSTRAINT ck_coeff CHECK(coeff BETWEEN 1 AND 7)
 );
 
 CREATE TABLE etudie(
@@ -68,4 +69,24 @@ VALUES
     ('Adrien', 3, '2007-05-15'),
     ('Viviane', 3, '2010-01-06'),
     ('Lesly', 4, '1994-04-20')
+;
+
+-- Ajoute data dans MATIERE
+INSERT INTO matiere(nom_matiere, coeff, code_ens)
+VALUES
+    ('Les bases du Web', 2, 5),
+    ('Maths et Algo', 3, 2),
+    ('Conception/Programmation Python', 4, 1),
+    ('TRE', 1, 4),
+    ('Projet Python', 5, 1),
+    ('Big Data', 3, 3),
+    ('Bases de données SQL', 3, 5)
+;
+
+-- Importe la data dans ETUDIE 
+-- à partir d'un fichier CSV
+LOAD DATA INFILE 'D:/Apps/uwamp/www/massy/sgbd/MPD-Matiere.csv'
+INTO TABLE greta91.etudie
+FIELDS TERMINATED BY ';'
+IGNORE 1 LINES
 ;
